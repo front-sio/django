@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}{% endblock %} | avopark</title>
+   
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="#">
+    <meta name="keywords" content="Flat ui, Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+    <meta name="author" content="#">
+    <!-- Favicon icon -->
+
+    <link rel="stylesheet" type="text/css" href="{% static 'bower_components/bootstrap/css/bootstrap.min.css' %}">
+    <!-- themify icon -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/icon/themify-icons/themify-icons.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/js/scanner/html5-qrcode.min_.js' %}">
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/icon/icofont/css/icofont.css' %}">
+    <!-- flag icon framework css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/pages/flag-icon/flag-icon.min.css' %}">
+    <!--SVG Icons Animated-->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/icon/SVG-animated/svg-weather.css'%}">
+    <!-- Menu-Search css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/pages/menu-search/css/component.css'%}">
+    <!-- Horizontal-Timeline css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/pages/dashboard/horizontal-timeline/css/style.css'%}">
+    <!-- amchart css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/pages/dashboard/amchart/css/amchart.css'%}">
+    <!-- Calender css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/pages/widget/calender/pignose.calendar.min.css'%}">
+    <!-- flag icon framework css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/pages/flag-icon/flag-icon.min.css'%}">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/style.css'%}">
+
+</head>
+
+<body class="fix-menu">
+    
+    {% block content %}{% endblock %}
+  
+    <script type="text/javascript" src="{% static 'admin/bower_components/jquery/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'admin/bower_components/jquery-ui/js/jquery-ui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/bower_components/popper.js/js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/bower_components/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="{% static 'admin/bower_components/jquery-slimscroll/js/jquery.slimscroll.js' %}"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="{% static 'admin/bower_components/modernizr/js/modernizr.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/bower_components/modernizr/js/css-scrollbars.js' %}"></script>
+    <!-- i18next.min.js -->
+    <script type="text/javascript" src="{% static 'admin/bower_components/i18next/js/i18next.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/bower_components/i18next-xhr-backend/js/i18nextXHRBackend.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/bower_components/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/bower_components/jquery-i18next/js/jquery-i18next.min.js' %}"></script>
+</body>
+
+</html>

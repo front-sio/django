@@ -1,0 +1,50 @@
+{% extends 'HomeController/frontiend.html' %}
+
+{% load static %}
+{% block content %} 
+
+{% if error %}
+<!-- Notification Start -->
+<div class="col-md-12 col-xl-5">
+    <div class="card">
+     <div class="card-block">
+      <h5>NOtifiction</h5>
+    </div>
+    <div class="card-block p-t-20">
+      <div class="card-notification">
+       <div class="card-noti-conatin">
+        <h6>5 mins ago</h6>
+        <p class="text-muted m-b-30">jennifer sent you an attachament</p>
+      </div>
+    </div>
+    <div class="card-notification">
+     <div class="card-noti-conatin">
+      <h6>45 mins ago</h6>
+      <p class="text-muted m-b-30">Paul has sent a request for <span>access</span> to the project folder</p>
+    </div>
+  </div>
+  <div class="card-notification">
+   <div class="card-noti-conatin">
+    <h6>2 days ago</h6>
+    <p class="text-muted m-b-30">Demin change the dedline on the project</p>
+  </div>
+  </div>
+  <div class="card-notification">
+   <div class="card-noti-conatin">
+    <h6>12 mins ago</h6>
+    <p class="text-muted m-b-30">jennifer invite you to join the project</p>
+  </div>
+  </div>
+  <div class="card-notification">
+   <div class="card-noti-conatin">
+    <h6>60 mins ago</h6>
+    <p class="text-muted m-b-30">Josephine <span>share</span> a folder with you</p>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <!-- Notification End -->
+{% endif %}
+
+{% endblock %}

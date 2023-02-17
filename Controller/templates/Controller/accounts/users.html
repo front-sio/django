@@ -1,0 +1,156 @@
+{% extends 'Controller/base/index.html' %}
+
+{% block content %}
+
+<!-- Reset Order Start -->
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-block">
+            <h5>{% block title%} users list {% endblock %}</h5>
+           
+
+                <!-- <p class="text-center">
+                    <button type="button" class="btn btn-primary auth-btn" data-toggle="modal" data-target="#sign-in">Print</button>
+                </p> -->
+            
+          
+        </div>
+        <div class="card-block reset-table p-t-0">
+            <div class="table-responsive">
+                {% if user.is_authenticated %}
+                <a href="{% url 'create_user' %}" class="btn btn-primary"><i></i> Add user</a>
+                <!-- <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#sign-in-modal">add user</button> -->
+                <table class="table">
+                    <thead>
+                        <tr class="text-uppercase">
+                            <th>username</th>
+                            <th>email key</th>
+                            <th>phone</th>
+                            <th></th>
+                            <th></th>
+                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for courier in parcel %}
+                        <tr>
+                                        {% if courier.mtk %}
+                                        <td>{{courier.mtk}}</td>
+                                        {% else %}
+                                        <td>an express number not set</td>
+                                        {% endif %}
+                                        {% if courier.tracking_key %}
+                                        <td>{{courier.tracking_key}}</td>
+                                        {% else %}
+                                        <td>Not set</td>
+                                        {% endif %}
+                                        {% if courier.kgs %}
+                                        <td>{{courier.kgs}}</td>
+                                        {% else %}
+                                        <td>Not set</td>
+                                        {% endif %}
+                                        {% if courier.number_of_parcel %}
+                                        <td>{{courier.number_of_parcel}}</td>
+                                        {% else %}
+                                        <td>Not set</td>
+                                        {% endif %}
+                                        {% if courier.user %}
+                                        <td>{{courier.user}}</td>
+                                        {% else %}
+                                        <td>Not set</td>
+                                        {% endif %}
+                                       
+                                        {% if user.is_authenticated %}
+                                        
+                                        <td><a href="{% url 'parcel_update' courier.id %}" class="btn btn-success btn-round btn-outline-success">Edit</a></td>
+                                        {% endif %}
+                                 </tr>
+                       {% endfor %}
+                      
+                    </tbody>
+                </table>
+                {% else %}
+                <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="icofont icofont-close-line-circled"></i>
+                    </button>
+                    <center>
+                    <strong>Hello!</strong> Sorry login first and try again <a href="#" class="btn ">Login</a> 
+                    </center>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Reset Order End -->
+
+
+
+
+<!-- Sign in modal start -->
+<div class="modal fade" id="sign-in-modal" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Register user Now</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body p-b-0">
+                <form method="POST" >
+                    {%csrf_token%}
+                    <!-- <div class="row">
+                        <div class="col-sm-12">
+                            <div>
+                                <label class="form-control-label">Username</label>
+                                <input type="text" name="usename" class="form-control" placeholder="Choose your Username">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div>
+                                <label class="form-control-label">email</label>
+                                <input type="email" name="email" class="form-control" placeholder="Enter your email">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div>
+                                <label class="form-control-label">Password</label>
+                                <input type="password" name="password" class="form-control" placeholder="Enter your Valid Password">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div>
+                                <label class="form-control-label">Confirm Password</label>
+                                <input type="password" name="password2" class="form-control" placeholder="Confirm Password">
+                            </div>
+                        </div>
+                    </div>
+                    -->
+
+                    {{form.as_p}}
+
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary" value="register">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+           
+        </div>
+    </div>
+</div>
+<!-- tegister in modal end -->
+
+{% endblock %}

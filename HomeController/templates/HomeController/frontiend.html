@@ -1,0 +1,289 @@
+ {% load  static %} 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>sifex aircargo</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+    <meta name="keywords" content="flat ui, Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+
+    <!-- Favicon -->
+    <link href="{% static 'images/favicon.png' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+
+
+
+
+
+
+    <link href="../../../../css.css?family=Mada:300,400,500,600,700" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="{% static 'bower_components/bootstrap/css/bootstrap.min.css' %}">
+    <!-- themify icon -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/icon/themify-icons/themify-icons.css' %}">
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/icon/icofont/css/icofont.css' %}">
+    <!-- flag icon framework css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/pages/flag-icon/flag-icon.min.css' %}">
+    <!--SVG Icons Animated-->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/icon/SVG-animated/svg-weather.css'%}">
+    <!-- Menu-Search css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/pages/menu-search/css/component.css'%}">
+    <!-- Horizontal-Timeline css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/pages/dashboard/horizontal-timeline/css/style.css'%}">
+    <!-- amchart css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/pages/dashboard/amchart/css/amchart.css'%}">
+    <!-- Calender css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/pages/widget/calender/pignose.calendar.min.css'%}">
+    <!-- flag icon framework css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/pages/flag-icon/flag-icon.min.css'%}">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/style.css'%}">
+    <!--color css-->
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/linearicons.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/simple-line-icons.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/ionicons.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/jquery.mCustomScrollbar.css'%}">
+    <style>
+
+  
+        .info-box 
+            {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                flex-direction: column;
+            }
+            .infobox-wraper 
+            {
+                width: 70%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            .navbar-brand 
+            {
+                width: 100px;
+            }
+
+            .navbar-brand img 
+            {
+                width: 100%;
+                height: 100%;
+            }
+
+            .jumbotron 
+            {
+                margin-top: 9rem;
+            }
+
+            .line-clamp {
+                overflow: hidden;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                height:52px;
+                text-overflow: ellipsis;
+                word-wrap: break-word;
+              }
+
+            .material-icons-outlined.md-70 { font-size: 60px; color: #000; font-style: normal; font-weight: normal; }
+    </style>
+</head>
+
+<body>
+   
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-light py-1 fixed-top py-lg-0 px-lg-1">
+            <a href="{% url 'home' %}" class="navbar-brand ml-lg-3">
+                <img src="{% static './images/SIFEX LOGO.png' %}" alt="">
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+
+                    <span class="material-icons-outlined md-70">
+                        drag_handle
+                        </span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-0">
+                    <a href="{% url 'home' %}" class="nav-item nav-link active">Home</a>
+                    <a href="#qoute" class="nav-item nav-link">get qoute</a>
+                    <a href="{% url 'services' %}" class="nav-item nav-link">Service</a>
+                    <a href="{% url 'contact' %}" class="nav-item nav-link">Contact Us</a>
+                    <a href="{% url 'about' %}" class="nav-item nav-link">About Us</a>
+                </div>
+               
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+   <br><br><br>
+   {% block content %}
+   {% endblock %}
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white mt-5 py-5 px-sm-3 px-md-5">
+        <div class="row pt-5">
+            <div class="col-lg-7 col-md-6">
+                <div class="row">
+                    {% for addre in address %}
+                    <div class="col-md-6 mb-5">
+                        <h5 class="text-primary mb-6">{{ addre.title }}</h5>
+                        <p><i class="fa fa-map-marker-alt mr-2"></i>{{addre.location}}</p>
+                        <p><i class="fa fa-phone-alt mr-2"></i>{{addre.phone}}</p>
+                        <p><i class="fa fa-envelope mr-2"></i>{{addre.email}}</p>
+                        <div class="d-flex justify-content-start mt-4">
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 mb-5">
+                        <div class="d-flex flex-column justify-content-start">
+                            <h5 class="text-primary mb-4">Quick Links</h5>
+                            <a class="text-white mb-2" href="{% url 'home' %}"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                            <a class="text-white mb-2"  href="{% url 'services' %}"> <i class="fa fa-angle-right mr-2"></i>Service</a>
+                            <a class="text-white mb-2"  href="{% url 'contact' %}"> <i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                            <a class="text-white mb-2"  href="{% url 'about' %}"> <i class="fa fa-angle-right mr-2"></i>About Us</a>
+                            <a class="text-white mb-2"  href="{% url 'Admin' %}"> <i class="fa fa-angle-right mr-2"></i>staff</a>
+                        </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: #3E3E4E !important;">
+        <div class="row">
+            <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
+                <p class="m-0 text-white">&copy; <a href="#">Sifex</a>. All Rights Reserved. 
+				
+				
+				{% comment %} Designed by <a href="https://freewebsitecode.com">Free Website Code</a> {% endcomment %}
+                </p>
+            </div>
+            <div class="col-lg-6 text-center text-md-right">
+                <ul class="nav d-inline-flex">
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Privacy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Terms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">FAQs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white py-0" href="#">Help</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+
+
+
+
+
+
+    <script type="text/javascript" src="{% static 'bower_components/jquery/js/jquery.min.js'%}"></script>
+<script src="{% static 'bower_components/jquery-ui/js/jquery-ui.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'bower_components/popper.js/js/popper.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'bower_components/bootstrap/js/bootstrap.min.js'%}"></script>
+<!-- jquery slimscroll js -->
+<script type="text/javascript" src="{% static 'bower_components/jquery-slimscroll/js/jquery.slimscroll.js'%}"></script>
+<!-- modernizr js -->
+<script type="text/javascript" src="{% static 'bower_components/modernizr/js/modernizr.js'%}"></script>
+<script type="text/javascript" src="{% static 'bower_components/modernizr/js/css-scrollbars.js'%}"></script>
+<!-- Calender js -->
+<script type="text/javascript" src="{% static 'bower_components/moment/js/moment.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'admin/pages/widget/calender/pignose.calendar.min.js' %}"></script>
+<!-- classie js -->
+<!-- c3 chart js -->
+<script src="{% static 'bower_components/c3/js/c3.js'%}"></script>
+<script type="text/javascript" src="{% static 'bower_components/classie/js/classie.js'%}"></script>
+<!-- knob js -->
+<script src="{% static 'admin/pages/chart/knob/jquery.knob.js'%}"></script>
+<script type="text/javascript" src="{% static 'admin/pages/widget/jquery.sparkline.js'%}"></script>
+<!-- Rickshow Chart js -->
+<script src="{% static 'bower_components/d3/js/d3.js'%}"></script>
+<script src="{% static 'bower_components/rickshaw/js/rickshaw.js'%}"></script>
+<!-- Morris Chart js -->
+<script src="{% static 'bower_components/raphael/js/raphael.min.js'%}"></script>
+<script src="{% static 'bower_components/morris.js/js/morris.js'%}"></script>
+<!-- Float Chart js -->
+<script src="{% static 'admin/pages/chart/float/jquery.flot.js'%}"></script>
+<script src="{% static 'admin/pages/chart/float/jquery.flot.categories.js'%}"></script>
+<script src="{% static 'admin/pages/chart/float/jquery.flot.pie.js'%}"></script>
+    <!-- Horizontal-Timeline js -->
+<script type="text/javascript" src="{% static 'admin/pages/dashboard/horizontal-timeline/js/main.js'%}"></script>
+<!-- amchart js -->
+<script type="text/javascript" src="{% static 'admin/pages/dashboard/amchart/js/amcharts.js'%}"></script>
+<script type="text/javascript" src="{% static 'admin/pages/dashboard/amchart/js/serial.js'%}"></script>
+<script type="text/javascript" src="{% static 'admin/pages/dashboard/amchart/js/light.js'%}"></script>
+<script type="text/javascript" src="{% static 'admin/pages/dashboard/amchart/js/custom-amchart.js'%}"></script>
+<!-- i18next.min.js -->
+<script type="text/javascript" src="{% static 'bower_components/i18next/js/i18next.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'bower_components/i18next-xhr-backend/js/i18nextXHRBackend.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'bower_components/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'bower_components/jquery-i18next/js/jquery-i18next.min.js'%}"></script>
+<!-- Custom js -->
+<script type="text/javascript" src="{% static 'admin/pages/dashboard/custom-dashboard.js'%}"></script>
+<script type="text/javascript" src="{% static 'admin/js/script.js'%}"></script>
+
+<!-- pcmenu js -->
+<script src="{% static 'admin/js/pcoded.min.js'%}"></script>
+<script src="{% static 'admin/js/demo-12.js'%}"></script>
+<script src="{% static 'admin/js/jquery.mCustomScrollbar.concat.min.js'%}"></script>
+<script src="{% static 'admin/js/jquery.mousewheel.min.js'%}"></script>
+</body>
+
+</html>

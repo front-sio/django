@@ -1,0 +1,63 @@
+{% extends 'Controller/base/index.html' %}
+
+{% block content %}
+
+{% if package %}
+  <div class="container">
+    <div class="row">
+        <div class="card">
+            {% for pack in package %}
+            {{pack.customer_name}}
+            {{pack.destination}}
+            {{pack.place_from}}
+            
+
+            <a href="{% url 'extra_pack_detail' pack.id %}">Next</a>
+            {% endfor %}
+        </div>
+    </div>
+  </div>
+  {% elif parcel %}
+
+  <div class="container">
+    <div class="row">
+        <div class="card">
+            {% for pack in parcel %}
+            {{pack.customer_name}}
+            {{pack.destination}}
+            {{pack.place_from}}
+            
+
+            
+            {% endfor %}
+        </div>
+
+        <div class="col-lg-6 col-xl-3 col-md-6">
+          <div class="card rounded-card user-card">
+              <div class="card-block">
+                  <div class="img-hover">
+                      <!-- <img class="img-fluid img-circle" src="assets/images/user-card/img-round1.jpg" alt="round-img"> -->
+                      <div class="img-overlay">
+                          <span>
+                            <a href="#" class="btn btn-sm btn-primary" data-popup="lightbox"><i class="icofont icofont-plus"></i></a>
+                            <a href="" class="btn btn-sm btn-primary"><i class="icofont icofont-link-alt"></i></a>
+                        </span>
+                    </div>
+                </div>
+                <div class="user-content">
+                  <h4 class="">Cedric Kelly</h4>
+                  <h5 class="">Network engineer</h5>
+              </div>
+              <ul class="icons-list mt-15">
+                 <li><a href="{% url 'extra_parcel_detail' pack.id %}">Next</a></li>
+              </ul>
+          </div>
+      </div>
+  </div>
+
+
+    </div>
+  </div>
+  {% endif %}
+
+{% endblock %}

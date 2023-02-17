@@ -1,0 +1,13 @@
+{% extends 'Controller/base/index.html' %}
+
+{% block content %}
+    <div class="card-body">
+        <h1>{% block title %}update {{parcel}} {% endblock %}</h1>
+        <form method="post">
+            {% csrf_token %}
+            <!-- <button id="SubmitBtn" type="submit" class="btn btn-success">load key</button> -->
+            {{form.as_p}}
+            <button type="submit" class="btn btn-success">Update</button>
+        </form>
+    </div>
+{% endblock %}

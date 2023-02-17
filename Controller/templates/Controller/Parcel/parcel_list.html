@@ -1,0 +1,90 @@
+{% extends 'Controller/base/index.html' %}
+
+{% block content %}
+
+<!-- Reset Order Start -->
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-block">
+            <h5>{% block title%} parcel list {% endblock %}</h5>
+            <a class="btn btn-primary" href="{% url 'parcel_create' package.id %}">add parcel</a>
+
+                <!-- <p class="text-center">
+                    <button type="button" class="btn btn-primary auth-btn" data-toggle="modal" data-target="#sign-in">Print</button>
+                </p> -->
+                <p class="text-center">
+                    <a href="{% url 'package_print' package.id %}" class="btn btn-primary auth-btn" >Print</a>
+                </p>
+          
+        </div>
+        <div class="card-block reset-table p-t-0">
+            <div class="table-responsive">
+                {% if user.is_authenticated %}
+                <table class="table">
+                    <thead>
+                        <tr class="text-uppercase">
+                            <th>mtk</th>
+                            <th>tracking key</th>
+                            <th>kgs</th>
+                            <th>Number of pkg</th>
+                            <th>published by</th>
+                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for courier in parcel %}
+                        <tr>
+                                        {% if courier.mtk %}
+                                        <td>{{courier.mtk}}</td>
+                                        {% else %}
+                                        <td>an express number not set</td>
+                                        {% endif %}
+                                        {% if courier.tracking_key %}
+                                        <td>{{courier.tracking_key}}</td>
+                                        {% else %}
+                                        <td>Not set</td>
+                                        {% endif %}
+                                        {% if courier.kgs %}
+                                        <td>{{courier.kgs}}</td>
+                                        {% else %}
+                                        <td>Not set</td>
+                                        {% endif %}
+                                        {% if courier.number_of_parcel %}
+                                        <td>{{courier.number_of_parcel}}</td>
+                                        {% else %}
+                                        <td>Not set</td>
+                                        {% endif %}
+                                        {% if courier.user %}
+                                        <td>{{courier.user}}</td>
+                                        {% else %}
+                                        <td>Not set</td>
+                                        {% endif %}
+                                       
+                                        {% if user.is_authenticated %}
+                                        
+                                        <td><a href="{% url 'parcel_update' courier.id %}" class="btn btn-success btn-round ">Edit</a></td>
+                                        {% endif %}
+                                 </tr>
+                       {% endfor %}
+                      
+                    </tbody>
+                </table>
+                {% else %}
+                <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="icofont icofont-close-line-circled"></i>
+                    </button>
+                    <center>
+                    <strong>Hello!</strong> Sorry login first and try again <a href="#" class="btn ">Login</a> 
+                    </center>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Reset Order End -->
+
+
+{% endblock %}

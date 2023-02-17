@@ -1,0 +1,99 @@
+{% extends 'Controller/base/index.html' %}
+
+{% block content %}
+
+<!-- Reset Order Start -->
+<div class="col-md-12">
+    <div class="card">
+        {% if packages %}
+        <div class="card-block">
+            <h5>{% block title%} parckage list {% endblock %}</h5>
+            {% if user.is_authenticated %}
+            <a href="{% url 'courier_create' %}" class="btn btn-primary"><i></i> Add courier</a>
+            {% endif %}
+        </div>
+        
+        <div class="card-block reset-table p-t-0">
+            <div class="table-responsive">
+                {% if user.is_authenticated %}
+                <table class="table">
+                    <thead>
+                        <tr class="text-uppercase">
+                            <th>customer name</th>
+                            <th>tracking key</th>
+                            <th>order number</th>
+                            <th>kgs</th>
+                            <th>number of parcel</th>
+                            <th>by</th>
+                            <th>actions</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for courier in packages %}
+                        <tr>
+                            <td>{{courier.customer_name}}</td>
+                                        {% if courier.tracking_key %}
+                                        <td>{{courier.tracking_key}}</td>
+                                        {% else %}
+                                        <td>an express number not set</td>
+                                        {% endif %}
+                                        {% if courier.order_number %}
+                                        <td>{{courier.order_number}}</td>
+                                        {% else %}
+                                        <td>an order number not set</td>
+                                        {% endif %}
+                                        {% if courier.kgs %}
+                                        <td>{{courier.kgs}}</td>
+                                        {% else %}
+                                        <td>Not set</td>
+                                        {% endif %}
+                                        {% if courier.number_of_parcel %}
+                                        <td>{{courier.number_of_parcel}}</td>
+                                        {% else %}
+                                        <td>Not set</td>
+                                        {% endif %}
+                                        {% if courier.user %}
+                                        <td>{{courier.user}}</td>
+                                        {% else %}
+                                        <td>Not set</td>
+                                        {% endif %}
+                                        {% if user.is_authenticated %}
+                                        
+                                        <td><a href="{% url 'view_package' courier.id %}" class="btn btn-success btn-round btn-outline-success">View</a></td>
+                                        <td><a href="{% url 'courier_update' courier.id %}">edit</a></td>
+                                        <td><a href="{% url 'parcel_create' courier.id %}">add parcel</a></td>
+                                        {% endif %}
+                                 </tr>
+                       {% endfor %}
+                      
+                    </tbody>
+                </table>
+                {% else %}
+                <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="icofont icofont-close-line-circled"></i>
+                    </button>
+                    <center>
+                    <strong>Hello!</strong> Sorry login first and try again <a href="#" class="btn ">Login</a> 
+                    </center>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% else %}
+        <div class="alert alert-info border-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <i class="icofont icofont-close-line-circled"></i>
+            </button>
+            <strong>Whoops no any item to display!</strong> <code><a href="{% url 'courier_create' %}" class="btn btn-primary"><i></i> Add courier</a></code>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Reset Order End -->
+
+
+{% endblock %}

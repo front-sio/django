@@ -1,0 +1,105 @@
+{% extends 'HomeController/frontiend.html' %}
+
+{% load static %}
+{% block content %} 
+<!-- Notification Start -->
+<br><br><br>
+<div class="col-md-12 col-xl-5">
+    <div class="card">
+     <div class="card-block">
+      <h5><strong>{{courier}}</strong> <code>parcel details</code> </h5>
+      <div class="card-block task-details">
+        <table class="table table-border table-xs">
+            <tbody>
+             
+                <tr>
+                    <td> From:</td>
+                    <td class="text-right"><span class="f-right">{{courier.place_from}}</span></td>
+                </tr>
+
+                <tr>
+                    <td> Destination:</td>
+                    <td class="text-right"><span class="f-right">{{courier.destination}}</span></td>
+                </tr>
+
+                <tr>
+                    <td> Number of parcel:</td>
+                    <td class="text-right"><span class="f-right">{{courier.number_of_parcel}}</span></td>
+                </tr>
+
+                <tr>
+                    <td> parcel volume:</td>
+                    <td class="text-right"><span class="f-right">{{courier.kgs}}</span></td>
+                </tr>
+
+
+                <tr>
+                    <td> date recieved:</td>
+                    <td class="text-right"><span class="f-right">{{courier.date_recieved}}</span></td>
+                </tr>
+
+                <tr>
+                    <td> Expected arrival date:</td>
+                    <td class="text-right"><span class="f-right">{{courier.expected_arrival_date}}</span></td>
+                </tr>
+             
+            </tbody>
+        </table>
+    </div>
+    <h5>milestone</h5>
+    </div>
+    {% if courier_details %}
+    <div class="card-block p-t-20">
+    {% for info in courier_details %}
+      <div class="card-notification">
+        
+       <div class="card-noti-conatin">
+        <h3><b>{{info.date}}</b></h3>
+        <h5><span>Time: </span>{{info.time}}</h5><br>
+        {% if info.status == "DELIVERED" %}
+        <h5><span>Status: </span><p class="background-success p-10">{{info.status}}</p></h5><br>
+        {% else %}
+        <h5><span>Status: </span>{{info.status}}</h5><br>
+        {% endif %}
+       
+        <h5><span>Terminal: </span>{{info.terminal}}</h5><br>
+        {% if info.note %}
+        <h5><span>Note: </span>{{info.note}}</h5><br>
+        {% endif %}
+      </div>
+      {% if info.status == "DELIVERED" %}
+        <!-- <button>Request</button> -->
+      {% endif %}
+    </div>
+    {% endfor %}
+
+    {% else %}
+
+                
+       
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="icofont"></i>
+                </button>
+                <center>
+              
+                <strong>Sorry!, no any parcle detail updated for now</strong>
+                <code>please try again latter</code>
+                
+                </center>
+                <center><a class="btn" href="{% url 'home' %}">Return</a></center>
+                
+            </div>
+          
+           
+  
+    {% endif %}
+
+
+  </div>
+  </div>
+  </div>
+  <!-- Notification End -->
+
+
+{% endblock %}

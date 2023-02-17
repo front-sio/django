@@ -1,0 +1,107 @@
+
+{% extends 'Controller/base/index.html' %}
+
+{% block content %}
+<style>
+     label { font-size: 20px; }
+            @media print {
+            label {
+                font-size: 10px;
+            }
+            }
+            input {
+                border: none;
+                background-color: none;
+
+            }
+
+            #print-area 
+            {
+                /* width: 2in;
+                height: 4in; */
+                background-color: black;
+            }
+
+            .barcode_master 
+            {
+                width: 150px;
+                height: 30px;
+                margin-top: 12px;
+            }
+
+            .parcel_barcode 
+            {
+                width: 150px;
+                height: 30px;
+                margin-top: 40px;
+            }
+           img {
+            width: 100%;
+           }
+
+           .label-title 
+           {
+            width: 50%;
+           }
+    </style>
+
+<!-- Modal normal sign in start -->
+<div id="sign-in" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="login-card card-block login-card-modal">
+            <form class="md-float-material">
+                <div class="auth-box">
+                   
+                    <hr>
+                    <div class="row">
+                        <div class="col-9">
+                            <span>Package from:</span>
+                            <span>{{package.place_from}}</span>
+                        </div>
+                        <div class="col-3 barcode_master">
+                            <img src="{{package.barcode.url}}" alt="barcode">
+                        </div>
+
+                        <div class="col-3 parcel_barcode">
+                            <img src="{{package.barcode.url}}" alt="barcode">
+                        </div>
+                    </div>
+                   
+                    <div class="row m-t-15">
+                        <div class="col-md-12">
+                            <button type="button" onclick="printDiv('print-area')" class="btn btn-primary btn-md btn-block waves-effect text-center">Print</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-9">
+                            
+                           
+                        </div>
+                        <div class="col-3">
+                            <img src="assets/images/auth/Logo-small-bottom.png" alt="small-logo.png">
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- end of form -->
+        </div>
+    </div>
+</div>
+<!-- Modal normal sign in end-->
+
+
+<script>
+     function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script>
+
+{% endblock %}

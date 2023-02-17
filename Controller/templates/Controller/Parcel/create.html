@@ -1,0 +1,61 @@
+{% extends 'Controller/base/index.html' %}
+
+{% block content %}
+    <div class="card-body">
+        <h1>add new courier parcel</h1>
+        <form method="post">
+            {% csrf_token %}
+            <button id="addKey" type="submit" class="btn btn-success">request key</button>
+            <br><br>
+            {{form.as_p}}
+            <button type="submit" class="btn btn-success">Create</button>
+        </form>
+    </div>
+
+
+
+    
+<script>
+
+    document.getElementById('addKey').addEventListener('click', getKeys)
+        
+        
+        
+        function getKeys(){
+    
+           
+            var today = new Date();
+            var mydate = today.getDate();
+            
+            var myDay = today.getUTCDay();
+            var tt = today.getTime();
+            var myhrs = today.getHours();
+            var myminutes = today.getMinutes();
+            var myseconds = today.getSeconds();
+            
+            var mymonth = today.getMonth()+1; 
+            var myyear = today.getFullYear().toString().substr(-2);
+            if(mydate<10) 
+            {
+                mydate='0'+mydate;
+            } 
+            
+            if(mymonth<10) 
+            {
+                mymonth='0'+mymonth;
+            } 
+            
+            today = 'SX'+mydate+''+mymonth+''+myyear+''+myhrs+''+myminutes+''+myseconds+''+myDay;
+            orderNumber = 'SFX'+myseconds+''+''+myyear;
+
+            
+            
+            document.getElementById("id_tracking_key").value = today;
+            document.getElementById('id_mtk').value = mtk
+            // document.getElementById("id_order_number").value = orderNumber;
+    
+    
+    
+        }
+     </script>
+{% endblock %}

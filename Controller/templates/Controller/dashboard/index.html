@@ -1,0 +1,280 @@
+{% extends 'Controller/base/index.html' %}
+
+{% block content %}
+
+<div class="page-wrapper">
+    <div class="page-header">
+        <div class="page-header-title">
+            <h4 class="">{% block title %} Dashboard {% endblock %}</h4>
+            {% for message in messages %}
+             <h4 class="color-success p-20">{{message}}</h4>
+            {% endfor %}
+        </div>
+        <div class="page-header-breadcrumb">
+            <ul class="breadcrumb-title">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'Admin' %}">
+                        <i class="icofont icofont-home"></i>
+                    </a>
+                </li>
+                <li class="breadcrumb-item"><a href="#!">Pages</a>
+                </li>
+                <li class="breadcrumb-item"><a href="{% url 'Admin' %}">Dashboard</a>
+                 
+                </li>
+               
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="page-body">
+        <div class="row">
+            <!-- Visitor Chart Start-->
+            {% if user.is_authenticated %}
+
+
+            
+            <div class="col-md-6 col-xl-4">
+                <div class="card">
+                    <div class="card-block-big card-visitor-block">
+                        <div class="row">
+                            <div class="col-sm-8  card-visitor-button">
+                                <button class="btn btn-primary btn-icon"><i class="icofont icofont-"></i></button>
+                                <div class="card-contain">
+                                    <h6>{{today}} kg</h6>
+                                    <p class="text-muted f-18 m-0">today</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 text-center">
+                                <span class="visitor-chart"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="col-md-6 col-xl-4">
+                <div class="card">
+                    <div class="card-block-big card-visitor-block">
+                        <div class="row">
+                            <div class="col-sm-8 card-visitor-button">
+                                <button class="btn btn-warning btn-icon"><i class="icofont icofont-"></i></button>
+                                <div class="card-contain">
+                                    <h6>{{yesterday}} kg</h6>
+                                    <p class="text-muted f-18 m-0">Yesterday</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 text-center">
+                                <span class="sale-chart"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-12 col-xl-4">
+                <div class="card">
+                    <div class="card-block-big card-visitor-block">
+                        <div class="row">
+                            <div class="col-sm-8 card-visitor-button">
+                                <button class="btn btn-success btn-icon"><i class="icofont icofont-air-plane"></i></button>
+                                <div class="card-contain">
+                                    <h6>{{week}} kg</h6>
+                                    <p class="text-muted f-18 m-0">last 7 days</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 text-center">
+                                <span class="resource-barchart"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+
+            <!-- Visitor Chart End-->
+
+            <!-- Start -->
+            
+
+
+           
+{% if parcel %}
+            
+            <!-- Reset Order Start -->
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-block">
+                        <h5>Reset Order</h5>
+                    </div>
+                    <div class="card-block reset-table p-t-0">
+                        <div class="table-responsive">
+                            {% if packages %}
+                            <table class="table">
+                                <thead>
+                                    <th>customer name</th>
+                                    <th>tracking key</th>
+                                    <th>order number</th>
+                                    <th>kgs</th>
+                                    <th>number of parcel</th>
+                                    <th>published by</th>
+                                    
+                                    <th>actions</th>
+                                    <th></th>
+                                    <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for courier in parcel %}
+                                    <tr>
+                                        {% if courier.sender_name %}
+                                        <td>{{courier.sender_name}}</td>
+                                        {% else %}
+                                        <td>Not set</td>
+                                        {% endif %}
+                                        {% if courier.tracking_key %}
+                                        <td>{{courier.tracking_key}}</td>
+                                        {% else %}
+                                        <td>an express number not set</td>
+                                        {% endif %}
+                                        {% if courier.order_number %}
+                                        <td>{{courier.order_number}}</td>
+                                        {% else %}
+                                        <td>an order number not set</td>
+                                        {% endif %}
+                                        {% if courier.kgs %}
+                                        <td>{{courier.kgs}}</td>
+                                        {% else %}
+                                        <td>Not set</td>
+                                        {% endif %}
+                                        {% if courier.number_of_parcel %}
+                                        <td>{{courier.number_of_parcel}}</td>
+                                        {% else %}
+                                        <td>Not set</td>
+                                        {% endif %}
+                                       
+                        
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product table End -->
+{% endif %}
+            
+            <!-- Start-->
+            <!-- <div class="col-md-12 col-xl-4">
+               
+                <div class="row">
+                    <div class="col-xl-12 col-md-6">
+                        <div class="card">
+                            <div class="card-block-big card-status">
+                                <h5>Income Status</h5>
+                                <div class="card-block text-center">
+                                    <h2 class="text-primary">Kg {{packagekgs_count}}</h2>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p class="f-16 text-muted m-0">Total Weight : {{packagekgs_count}} kg</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="text-muted f-16 text-right">
+                                           
+                                            <i class="icofont icofont-caret-up text-success"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div> -->
+            <!-- End-->
+
+            
+
+            <!-- Reset Order Start -->
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-block">
+                        <h5>Reset Order</h5>
+                    </div>
+                    <div class="card-block reset-table p-t-0">
+                        <div class="table-responsive">
+                            {% if packages %}
+                            <table class="table">
+                                <thead>
+                                    <th>customer name</th>
+                                    <th>tracking key</th>
+                                    <th>order number</th>
+                                    <th>kgs</th>
+                                    <th>number of parcel</th>
+                                    <th>published by</th>
+                                    
+                                    <th>actions</th>
+                                    <th></th>
+                                    <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for courier in packages %}
+                                    <tr>
+                                        {% if courier.sender_name %}
+                                        <td>{{courier.sender_name}}</td>
+                                        {% else %}
+                                        <td>Not set</td>
+                                        {% endif %}
+                                        {% if courier.tracking_key %}
+                                        <td>{{courier.tracking_key}}</td>
+                                        {% else %}
+                                        <td>an express number not set</td>
+                                        {% endif %}
+                                        {% if courier.order_number %}
+                                        <td>{{courier.order_number}}</td>
+                                        {% else %}
+                                        <td>an order number not set</td>
+                                        {% endif %}
+                                        {% if courier.kgs %}
+                                        <td>{{courier.kgs}}</td>
+                                        {% else %}
+                                        <td>Not set</td>
+                                        {% endif %}
+                                        {% if courier.number_of_parcel %}
+                                        <td>{{courier.number_of_parcel}}</td>
+                                        {% else %}
+                                        <td>Not set</td>
+                                        {% endif %}
+                                       
+                        
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+ <!-- Reset Order End -->
+             {% else %}
+                <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="icofont icofont-close-line-circled"></i>
+                    </button>
+                    <center>
+                    <strong>Hello!</strong> Sorry login first and try again <a href="#" class="btn ">Login</a> 
+                    </center>
+                </div>
+                {% endif %}
+{% endblock %}
