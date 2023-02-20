@@ -41,7 +41,7 @@ SECRET_KEY = 'n!5#h-e*_p)!ayo9gbg(b&t^g*5u2d_f!@b=l=^7d-ayabc93='
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['127.0.0.1', 'django-server-production-a50a.up.railway.app']
+ALLOWED_HOSTS = ['127.0.0.1', 'django-server-production-deba.up.railway.app']
 
 
 
