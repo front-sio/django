@@ -43,7 +43,7 @@ if os.environ.get('TARGET_ENV').lower() == 'prod':
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['django-server-production-a50a.up.railway.app']
 
 
 
